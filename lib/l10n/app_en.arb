@@ -1,3 +1,5 @@
 {
-  "hello": "Hello"
+  "newThread": "New thread",
+  "hour": "h",
+  "cancel": "Cancel"
 }
