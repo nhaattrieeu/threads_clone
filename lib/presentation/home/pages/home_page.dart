@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         height: 62,
-        backgroundColor: AppColors.transparent,
+        backgroundColor: AppColors.white,
         border: Border.all(style: BorderStyle.none),
         items: [
           BottomNavigationBarItem(

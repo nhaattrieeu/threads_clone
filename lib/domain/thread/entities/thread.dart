@@ -12,7 +12,7 @@ class Thread extends Equatable {
   final int share;
   final bool isFirst;
   final bool isLiked;
-  final int createdAt;
+  final String createdAt;
   final Author author;
 
   const Thread({
@@ -39,7 +39,7 @@ class Thread extends Equatable {
     int? share,
     bool? isFirst,
     bool? isLiked,
-    int? createdAt,
+    String? createdAt,
     Author? author,
   }) {
     return Thread(

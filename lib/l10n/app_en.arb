@@ -1,5 +1,8 @@
 {
   "newThread": "New thread",
+  "now": "now",
+  "min": "m",
   "hour": "h",
+  "day": "d",
   "cancel": "Cancel"
 }

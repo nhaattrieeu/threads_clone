@@ -6,9 +6,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:threads_clone/core/config/app_colors.dart';
 import 'package:threads_clone/core/config/app_icons.dart';
-import 'package:threads_clone/core/extensions/l10n_extension.dart';
+import 'package:threads_clone/core/utils/time_converter.dart';
 import 'package:threads_clone/domain/thread/entities/thread.dart';
 import 'package:threads_clone/presentation/thread/cubit/thread_cubit.dart';
+import 'package:threads_clone/presentation/thread/widgets/media_item.dart';
 
 class ThreadItem extends StatelessWidget {
   const ThreadItem({super.key, required this.thread});
@@ -31,8 +32,8 @@ class ThreadItem extends StatelessWidget {
             child: ClipOval(
               child: CachedNetworkImage(
                 imageUrl: thread.author.profilePictureUrl,
-                width: 40,
-                height: 40,
+                width: 36,
+                height: 36,
                 fit: BoxFit.contain,
               ),
             ),
@@ -50,15 +51,15 @@ class ThreadItem extends StatelessWidget {
                         Text(
                           thread.author.username,
                           style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w700,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                         Visibility(
                           visible: thread.author.isVerified,
                           child: Row(
                             children: [
-                              const Gap(8),
+                              const Gap(6),
                               SvgPicture.asset(
                                 AppIcons.icVerify,
                                 width: 12,
@@ -67,11 +68,11 @@ class ThreadItem extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const Gap(8),
+                        const Gap(6),
                         Text(
-                          "5${context.translate.hour}",
+                          timeConverter(context, thread.createdAt),
                           style: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 15,
                             fontWeight: FontWeight.w400,
                             color: AppColors.grey,
                           ),
@@ -90,15 +91,16 @@ class ThreadItem extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Gap(10),
+                const Gap(6),
                 Text(
                   thread.content,
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 14.5,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-                const Gap(20),
+                MediaItem(media: thread.media),
+                const Gap(12),
                 Row(
                   children: [
                     CupertinoButton(
@@ -115,66 +117,105 @@ class ThreadItem extends StatelessWidget {
                                 ? AppIcons.icLikeActive
                                 : AppIcons.icLike,
                           ),
-                          const Gap(4),
-                          AnimatedFlipCounter(
-                            value: thread.like,
-                            textStyle: TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w400,
-                              color: thread.isLiked
-                                  ? AppColors.active
-                                  : AppColors.darkGrey,
+                          AnimatedSize(
+                            duration: const Duration(milliseconds: 200),
+                            child: Visibility(
+                              visible: thread.like == 0 ? false : true,
+                              child: Row(
+                                children: [
+                                  const Gap(4),
+                                  AnimatedFlipCounter(
+                                    value: thread.like,
+                                    textStyle: TextStyle(
+                                      fontSize: 13.5,
+                                      fontWeight: FontWeight.w400,
+                                      color: thread.isLiked
+                                          ? AppColors.active
+                                          : AppColors.darkGrey,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    const Gap(18),
+                    const Gap(12),
                     Row(
                       children: [
                         SvgPicture.asset(AppIcons.icComment),
-                        const Gap(4),
-                        Text(
-                          thread.comment.toString(),
-                          style: const TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.darkGrey,
+                        AnimatedSize(
+                          duration: const Duration(milliseconds: 200),
+                          child: Visibility(
+                            visible: thread.comment == 0 ? false : true,
+                            child: Row(
+                              children: [
+                                const Gap(4),
+                                AnimatedFlipCounter(
+                                  value: thread.comment,
+                                  textStyle: const TextStyle(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.darkGrey,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    const Gap(18),
+                    const Gap(12),
                     Row(
                       children: [
                         SvgPicture.asset(AppIcons.icRepost),
-                        const Gap(4),
-                        Text(
-                          thread.repost.toString(),
-                          style: const TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.darkGrey,
+                        AnimatedSize(
+                          duration: const Duration(milliseconds: 200),
+                          child: Visibility(
+                            visible: thread.repost == 0 ? false : true,
+                            child: Row(
+                              children: [
+                                const Gap(4),
+                                AnimatedFlipCounter(
+                                  value: thread.repost,
+                                  textStyle: const TextStyle(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.darkGrey,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    const Gap(18),
+                    const Gap(12),
                     Row(
                       children: [
                         SvgPicture.asset(AppIcons.icShare),
-                        const Gap(4),
-                        Text(
-                          thread.share.toString(),
-                          style: const TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                            color: AppColors.darkGrey,
+                        AnimatedSize(
+                          duration: const Duration(milliseconds: 200),
+                          child: Visibility(
+                            visible: thread.share == 0 ? false : true,
+                            child: Row(
+                              children: [
+                                const Gap(4),
+                                AnimatedFlipCounter(
+                                  value: thread.share,
+                                  textStyle: const TextStyle(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.darkGrey,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    const Gap(18),
                   ],
                 )
               ],

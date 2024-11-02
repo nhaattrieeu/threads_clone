@@ -1,5 +1,8 @@
 {
   "newThread": "Thread mới",
+  "now": " bây giờ",
+  "min": " phút",
   "hour": " giờ",
+  "day": " ngày",
   "cancel": "Hủy"
 }
