@@ -17,4 +17,6 @@ class AppIcons {
   static const String icComment = "${_path}ic_comment.svg";
   static const String icRepost = "${_path}ic_repost.svg";
   static const String icShare = "${_path}ic_share.svg";
+  static const String icLock = "${_path}ic_lock.svg";
+  static const String ic3lines = "${_path}ic_3lines.svg";
 }

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:threads_clone/core/config/app_colors.dart';
 import 'package:threads_clone/core/config/app_icons.dart';
 import 'package:threads_clone/presentation/create/presentation/create_page.dart';
+import 'package:threads_clone/presentation/profile/pages/profile_page.dart';
 import 'package:threads_clone/presentation/thread/pages/thread_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -61,7 +62,18 @@ class HomePage extends StatelessWidget {
         ],
       ),
       tabBuilder: (context, index) {
-        return const ThreadPage();
+        switch (index) {
+          case 0:
+            return const ThreadPage();
+          case 1:
+            return const ThreadPage();
+          case 3:
+            return const ThreadPage();
+          case 4:
+            return const ProfilePage();
+          default:
+            return const Placeholder();
+        }
       },
     );
   }
