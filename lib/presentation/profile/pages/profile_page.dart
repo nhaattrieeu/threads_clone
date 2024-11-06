@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
+import 'package:nested_scroll_view_plus/nested_scroll_view_plus.dart';
 import 'package:threads_clone/core/config/app_colors.dart';
 import 'package:threads_clone/core/config/app_icons.dart';
 
@@ -13,36 +14,24 @@ class ProfilePage extends StatefulWidget {
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage>
-    with TickerProviderStateMixin {
-  late TabController tabController;
-
-  @override
-  void initState() {
-    tabController = TabController(length: 3, vsync: this);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    tabController.dispose();
-    super.dispose();
-  }
-
+class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     const double tabBarHeight = 46;
 
-    return SafeArea(
-      child: NestedScrollView(
+    return DefaultTabController(
+      length: 3,
+      child: NestedScrollViewPlus(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
+            const CupertinoSliverRefreshControl(),
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text(MediaQuery.of(context).padding.top.toString()),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -170,42 +159,34 @@ class _ProfilePageState extends State<ProfilePage>
                 ),
               ),
             ),
-            SliverOverlapAbsorber(
-              handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-              sliver: SliverSafeArea(
-                sliver: SliverAppBar(
-                  pinned: true,
-                  toolbarHeight: tabBarHeight,
-                  backgroundColor: AppColors.white,
-                  surfaceTintColor: AppColors.white,
-                  flexibleSpace: TabBar.secondary(
-                    splashFactory: NoSplash.splashFactory,
-                    overlayColor: const WidgetStatePropertyAll(
-                      AppColors.transparent,
-                    ),
-                    controller: tabController,
-                    indicatorColor: AppColors.black,
-                    dividerColor: AppColors.greySmoke,
-                    indicatorPadding:
-                        const EdgeInsets.symmetric(horizontal: 12),
-                    labelStyle: const TextStyle(
-                      fontSize: 14.5,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    unselectedLabelColor: AppColors.unselectLabel,
-                    tabs: const [
-                      Tab(text: "Thread"),
-                      Tab(text: "Thread trả lời"),
-                      Tab(text: "Bài đăng lại"),
-                    ],
-                  ),
+            SliverAppBar(
+              pinned: true,
+              toolbarHeight: tabBarHeight,
+              backgroundColor: AppColors.white,
+              surfaceTintColor: AppColors.white,
+              flexibleSpace: TabBar.secondary(
+                splashFactory: NoSplash.splashFactory,
+                overlayColor: const WidgetStatePropertyAll(
+                  AppColors.transparent,
                 ),
+                indicatorColor: AppColors.black,
+                dividerColor: AppColors.greySmoke,
+                indicatorPadding: const EdgeInsets.symmetric(horizontal: 12),
+                labelStyle: const TextStyle(
+                  fontSize: 14.5,
+                  fontWeight: FontWeight.w600,
+                ),
+                unselectedLabelColor: AppColors.unselectLabel,
+                tabs: const [
+                  Tab(text: "Thread"),
+                  Tab(text: "Thread trả lời"),
+                  Tab(text: "Bài đăng lại"),
+                ],
               ),
             ),
           ];
         },
         body: TabBarView(
-          controller: tabController,
           children: [
             ListView.separated(
               itemCount: 40,

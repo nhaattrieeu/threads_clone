@@ -47,6 +47,7 @@ dependencies:
   cached_network_image: ^3.4.1
   gap: ^3.0.1
   animated_flip_counter: ^0.3.4
+  nested_scroll_view_plus: ^2.0.0
 
 
 dev_dependencies:

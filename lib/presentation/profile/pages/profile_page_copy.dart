@@ -17,7 +17,6 @@ class _ProfilePageState extends State<ProfilePageCopy>
     with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
-    TabController controller = TabController(length: 3, vsync: this);
     return SafeArea(
       child: CustomScrollView(
         slivers: [
@@ -159,7 +158,7 @@ class _ProfilePageState extends State<ProfilePageCopy>
               child: DefaultTabController(
                 length: 2,
                 child: TabBarView(
-                  children: <Widget>[
+                  children: [
                     ListView.builder(
                       itemCount: 50,
                       itemBuilder: (context, index) {
