@@ -15,7 +15,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
-        height: 62,
         backgroundColor: AppColors.white,
         border: Border.all(style: BorderStyle.none),
         items: [
