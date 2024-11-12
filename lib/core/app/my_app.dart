@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primaryColor: AppColors.black,
           scaffoldBackgroundColor: AppColors.white,
+          barBackgroundColor: AppColors.white,
         ),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,

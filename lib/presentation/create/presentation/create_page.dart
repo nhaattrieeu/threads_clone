@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:threads_clone/core/config/app_colors.dart';
 import 'package:threads_clone/core/extensions/l10n_extension.dart';
 
 class CreatePage extends StatelessWidget {
@@ -9,7 +8,6 @@ class CreatePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        backgroundColor: AppColors.white,
         leading: CupertinoButton(
           onPressed: () {
             Navigator.of(context).pop();

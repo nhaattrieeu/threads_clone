@@ -19,4 +19,12 @@ class AppIcons {
   static const String icShare = "${_path}ic_share.svg";
   static const String icLock = "${_path}ic_lock.svg";
   static const String ic3lines = "${_path}ic_3lines.svg";
+  static const String icInviteFriend = "${_path}ic_invite_friend.svg";
+  static const String icNotification = "${_path}ic_notification.svg";
+  static const String icYourLike = "${_path}ic_your_like.svg";
+  static const String icPrivacy = "${_path}ic_privacy.svg";
+  static const String icAccount = "${_path}ic_account.svg";
+  static const String icHelp = "${_path}ic_help.svg";
+  static const String icAbout = "${_path}ic_about.svg";
+  static const String icMute = "${_path}ic_mute.svg";
 }
