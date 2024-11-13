@@ -83,7 +83,7 @@ class SignInPage extends StatelessWidget {
             ],
           ),
           Positioned(
-            bottom: 12,
+            bottom: 16,
             child: CupertinoButton(
               onPressed: () {
                 showSignInWithPassword(context);

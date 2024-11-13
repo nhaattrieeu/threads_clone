@@ -198,8 +198,7 @@ void handleSignOut(BuildContext context) {
     context: context,
     builder: (context) {
       return CupertinoAlertDialog(
-        title: const Text("Sign out"),
-        content: const Text("Đăng xuất khỏi tài khoản của bạn?"),
+        title: const Text("Đăng xuất khỏi tài khoản của bạn?"),
         actions: [
           CupertinoDialogAction(
             onPressed: () {
@@ -209,6 +208,7 @@ void handleSignOut(BuildContext context) {
           ),
           CupertinoDialogAction(
             isDestructiveAction: true,
+            isDefaultAction: true,
             onPressed: () {
               Navigator.of(context, rootNavigator: true)
                   .pushNamedAndRemoveUntil(
