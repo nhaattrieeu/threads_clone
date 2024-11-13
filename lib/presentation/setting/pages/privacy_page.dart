@@ -18,108 +18,110 @@ class PrivacyPage extends StatelessWidget {
         middle: Text("Privacy"),
         previousPageTitle: "Back",
       ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    SvgPicture.asset(
-                      AppIcons.icPrivacy,
-                    ),
-                    const Gap(12),
-                    const Text(
-                      "Trang cá nhân riêng tư",
-                      style: TextStyle(
-                        fontSize: 15.5,
-                        fontWeight: FontWeight.w400,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      SvgPicture.asset(
+                        AppIcons.icPrivacy,
                       ),
-                    ),
-                  ],
-                ),
-                StatefulBuilder(
-                  builder: (context, setState) {
-                    return CupertinoSwitch(
-                      onChanged: (value) {
-                        setState(() {
-                          check = value;
-                        });
-                      },
-                      activeColor: AppColors.black,
-                      value: check,
-                    );
-                  },
-                ),
-              ],
+                      const Gap(12),
+                      const Text(
+                        "Trang cá nhân riêng tư",
+                        style: TextStyle(
+                          fontSize: 15.5,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                  StatefulBuilder(
+                    builder: (context, setState) {
+                      return CupertinoSwitch(
+                        onChanged: (value) {
+                          setState(() {
+                            check = value;
+                          });
+                        },
+                        activeColor: AppColors.black,
+                        value: check,
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
-          ),
-          CupertinoButton(
-            onPressed: () {},
-            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    const Gap(8),
-                    SvgPicture.asset(
-                      AppIcons.icThreads,
-                      width: 28,
-                      height: 28,
-                    ),
-                    const Gap(20),
-                    const Text(
-                      "Lượt nhắc",
-                      style: TextStyle(
-                        fontSize: 15.5,
-                        fontWeight: FontWeight.w400,
+            CupertinoButton(
+              onPressed: () {},
+              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const Gap(8),
+                      SvgPicture.asset(
+                        AppIcons.icThreads,
+                        width: 28,
+                        height: 28,
                       ),
-                    ),
-                  ],
-                ),
-                const Row(
-                  children: [
-                    Text(
-                      "Mọi người",
-                      style: TextStyle(
-                        fontSize: 13.5,
-                        color: AppColors.grey,
+                      const Gap(20),
+                      const Text(
+                        "Lượt nhắc",
+                        style: TextStyle(
+                          fontSize: 15.5,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                    Gap(5),
-                    CupertinoListTileChevron(),
-                  ],
-                )
-              ],
+                    ],
+                  ),
+                  const Row(
+                    children: [
+                      Text(
+                        "Mọi người",
+                        style: TextStyle(
+                          fontSize: 13.5,
+                          color: AppColors.grey,
+                        ),
+                      ),
+                      Gap(5),
+                      CupertinoListTileChevron(),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-          CupertinoButton(
-            onPressed: () {},
-            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    SvgPicture.asset(AppIcons.icMute),
-                    const Gap(12),
-                    const Text(
-                      "Đã tắt thông báo",
-                      style: TextStyle(
-                        fontSize: 15.5,
-                        fontWeight: FontWeight.w400,
+            CupertinoButton(
+              onPressed: () {},
+              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      SvgPicture.asset(AppIcons.icMute),
+                      const Gap(12),
+                      const Text(
+                        "Đã tắt thông báo",
+                        style: TextStyle(
+                          fontSize: 15.5,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                const CupertinoListTileChevron(),
-              ],
+                    ],
+                  ),
+                  const CupertinoListTileChevron(),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
