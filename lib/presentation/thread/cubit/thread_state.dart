@@ -1,7 +1,5 @@
 part of 'thread_cubit.dart';
 
-enum Status { init, loading, success, error }
-
 class ThreadState extends Equatable {
   final Status status;
   final List<Thread> threads;

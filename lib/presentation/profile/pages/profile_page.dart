@@ -219,7 +219,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 },
                 body: const TabBarView(
                   children: [
-                    Text("data"),
+                    Center(child: Text("data")),
                     Text("data"),
                     Text("data"),
                   ],

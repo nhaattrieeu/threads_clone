@@ -27,4 +27,7 @@ class AppIcons {
   static const String icHelp = "${_path}ic_help.svg";
   static const String icAbout = "${_path}ic_about.svg";
   static const String icMute = "${_path}ic_mute.svg";
+  static const String icUsers = "${_path}ic_users.svg";
+  static const String icHideLikes = "${_path}ic_hide_likes.svg";
+  static const String icOpenIn = "${_path}ic_open_in.svg";
 }

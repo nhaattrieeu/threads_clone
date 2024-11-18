@@ -1,4 +1,4 @@
-import 'package:threads_clone/data/thread/data_sources/thread_remote_data_source.dart';
+import 'package:threads_clone/data/thread/data_sources/remote/thread_remote_data_source.dart';
 import 'package:threads_clone/data/thread/repositories/thread_repository_impl.dart';
 import 'package:threads_clone/domain/thread/repositories/thread_repository.dart';
 import 'package:threads_clone/domain/thread/use_cases/get_threads_use_case.dart';
